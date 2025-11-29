@@ -48,7 +48,7 @@ export function PresenceLogs() {
     // Subscribe to the channel
     channel.subscribe((event) => {
       if (event === "SUBSCRIBED") {
-        channel.track<PresencePayload>({
+        channel.track({
           name,
           joinedAt: new Date().toISOString(),
         });
@@ -62,6 +62,7 @@ export function PresenceLogs() {
         // optional: mark disconnected
       }
     });
+
 
     return () => {
       channel.unsubscribe();
