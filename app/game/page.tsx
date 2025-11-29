@@ -129,7 +129,7 @@ export default function GamePage() {
     // Subscribe and track our presence
     channel.subscribe((event) => {
       if (event === "SUBSCRIBED") {
-        channel.track<PresencePayload>({
+        channel.track({
           name: playerName,
           joinedAt: new Date().toISOString(),
         });
